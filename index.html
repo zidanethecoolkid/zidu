@@ -23,6 +23,7 @@
   .ic{display:flex;flex-direction:column;align-items:center;gap:6px;padding:8px 4px;cursor:default;border-radius:3px;-webkit-tap-highlight-color:transparent}
   .ic:hover{background:rgba(0,0,80,.35)}
   .ic .g{width:52px;height:52px;display:flex;align-items:center;justify-content:center;font-size:34px;filter:drop-shadow(1px 1px 2px rgba(0,0,0,.4))}
+  .ic .g.sv img{width:48px;height:48px;border-radius:10px;box-shadow:1px 1px 3px rgba(0,0,0,.45)}
   .ic .l{color:#fff;font-size:12px;text-align:center;text-shadow:1px 1px 2px rgba(0,0,0,.9);font-weight:bold;line-height:14px}
   /* classic gray window */
   .win{position:fixed;z-index:10;background:#c0c0c0;border-top:2px solid #dfdfdf;border-left:2px solid #dfdfdf;border-right:2px solid #404040;border-bottom:2px solid #404040;box-shadow:2px 2px 12px rgba(0,0,0,.45);display:flex;flex-direction:column}
@@ -121,13 +122,13 @@
 <script>
 // ---- data ----
 var PROJECTS = [
-  { title:'Airr',          url:'https://joinairr.com',       desc:'flight-deal app<br>joinairr.com',      th:'<div class="th blue">✈️</div>' },
+  { title:'Airr',          url:'https://joinairr.com',       desc:'flight-deal app<br>joinairr.com',      th:'<div class="th"><img src="airr.png" alt="Airr"></div>' },
   { title:'vids.zip',      url:'https://vids.zip',           desc:'videography<br>ziduflicks',            th:'<div class="th"><img src="https://www.dispos.zip/imgs/047_1.jpg" alt=""><div class="play">▶</div></div>' },
   { title:'dispos.zip',    url:'https://dispos.zip',         desc:'disposable photos<br>zidudispos',      th:'<div class="th"><img src="https://www.dispos.zip/imgs/038_1.jpg" alt=""></div>' },
   { title:'Triple Hearts', url:'https://tripleheartts.shop', desc:'clothing<br>store link →',             th:'<div class="th black">👕</div>' }
 ];
 var DESK_ICONS = [
-  {icon:'✈️', label:'Airr',          act:"go('https://joinairr.com')"},
+  {img:'airr.png', label:'Airr',     act:"go('https://joinairr.com')"},
   {icon:'🎬', label:'vids.zip',      act:"go('https://vids.zip')"},
   {icon:'📷', label:'dispos.zip',    act:"go('https://dispos.zip')"},
   {icon:'👕', label:'Triple Hearts', act:"go('https://tripleheartts.shop')"},
@@ -138,8 +139,9 @@ var DESK_ICONS = [
 (function(){
   var html='';
   DESK_ICONS.forEach(function(ic){
+    var glyph = ic.img ? '<img src="'+ic.img+'" alt="">' : ic.icon;
     html+='<div class="ic" ondblclick="'+ic.act+'" ontouchend="event.preventDefault();'+ic.act+'">'+
-      '<div class="g">'+ic.icon+'</div><div class="l">'+ic.label+'</div></div>';
+      '<div class="g'+(ic.img?' sv':'')+'">'+glyph+'</div><div class="l">'+ic.label+'</div></div>';
   });
   document.getElementById('icons').innerHTML=html;
 })();
