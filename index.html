@@ -93,12 +93,12 @@
   <div class="smhead"><span class="av">z</span><span>zidu</span></div>
   <div class="smitems">
     <div class="smi" onclick="openWin('work')">🗂️ &nbsp;My Work</div>
-    <div class="smi" onclick="openWin('about')">📄 &nbsp;About Me</div>
+    <div class="smi" onclick="openWin('about')">📄 &nbsp;about me</div>
     <div class="smsep"></div>
     <div class="smi" onclick="go('https://joinairr.com')">✈️ &nbsp;Airr</div>
     <div class="smi" onclick="go('https://vids.zip')">🎬 &nbsp;vids.zip</div>
     <div class="smi" onclick="go('https://dispos.zip')">📷 &nbsp;dispos.zip</div>
-    <div class="smi" onclick="go('https://tripleheartts.shop')">👕 &nbsp;Triple Hearts</div>
+    <div class="smi" onclick="go('https://tripleheartts.com')">👕 &nbsp;Triple Hearts</div>
     <div class="smi" onclick="go('https://scrapbook.zip')">📖 &nbsp;scrapbook.zip</div>
     <div class="smsep"></div>
     <div class="smi" onclick="toggleSub()">📸 &nbsp;Socials &nbsp;▸</div>
@@ -125,15 +125,15 @@ var PROJECTS = [
   { title:'Airr',          url:'https://joinairr.com',       desc:'flight-deal app<br>joinairr.com',      th:'<div class="th"><img src="airr.png" alt="Airr"></div>' },
   { title:'vids.zip',      url:'https://vids.zip',           desc:'videography<br>ziduflicks',            th:'<div class="th"><img src="https://www.dispos.zip/imgs/047_1.jpg" alt=""><div class="play">▶</div></div>' },
   { title:'dispos.zip',    url:'https://dispos.zip',         desc:'disposable photos<br>zidudispos',      th:'<div class="th"><img src="https://www.dispos.zip/imgs/038_1.jpg" alt=""></div>' },
-  { title:'Triple Hearts', url:'https://tripleheartts.shop', desc:'clothing<br>store link →',             th:'<div class="th black">👕</div>' }
+  { title:'Triple Hearts', url:'https://tripleheartts.com',  desc:'clothing<br>store link →',             th:'<div class="th"><img src="triplehearts.jpg" alt="Triple Hearts"></div>' }
 ];
 var DESK_ICONS = [
   {img:'airr.png', label:'Airr',     act:"go('https://joinairr.com')"},
   {icon:'🎬', label:'vids.zip',      act:"go('https://vids.zip')"},
   {icon:'📷', label:'dispos.zip',    act:"go('https://dispos.zip')"},
-  {icon:'👕', label:'Triple Hearts', act:"go('https://tripleheartts.shop')"},
+  {img:'triplehearts.jpg', label:'Triple Hearts', act:"go('https://tripleheartts.com')"},
   {icon:'📖', label:'scrapbook.zip', act:"go('https://scrapbook.zip')"},
-  {icon:'📄', label:'About Me',      act:"openWin('about')"}
+  {icon:'📄', label:'about me',      act:"openWin('about')"}
 ];
 // ---- desktop icons ----
 (function(){
@@ -183,7 +183,7 @@ function aboutHTML(){
 }
 var WINS={
   work:{ title:'🗂️ &nbsp;zidu — My Work', body:workHTML, w:640, tk:'🗂️ zidu — My Work' },
-  about:{ title:'📄 &nbsp;About Me', body:aboutHTML, w:434, tk:'📄 About Me' }
+  about:{ title:'📄 &nbsp;about me', body:aboutHTML, w:434, tk:'📄 about me' }
 };
 function openWin(id){
   closeStart();
