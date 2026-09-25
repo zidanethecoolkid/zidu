@@ -15,75 +15,78 @@
 <style>
   *{box-sizing:border-box;margin:0;padding:0}
   html,body{width:100vw;height:100vh;height:100dvh;overflow:hidden;font-family:'MS Sans Serif','Microsoft Sans Serif',Tahoma,Geneva,sans-serif;font-size:12px;
-    background:linear-gradient(180deg,#245edb 0%,#4b8ce0 34%,#78b0e8 45%,#6fb15a 45%,#4c8f3a 100%);cursor:default;-webkit-user-select:none;user-select:none;touch-action:none}
-  body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:99999;background:repeating-linear-gradient(0deg,rgba(0,0,0,.025) 0 1px,transparent 1px 3px);mix-blend-mode:multiply}
-  /* desktop icons */
-  #desktop{position:fixed;inset:0 0 40px 0;z-index:1}
-  .icon{position:absolute;width:88px;display:flex;flex-direction:column;align-items:center;gap:5px;padding:7px 4px;border-radius:3px;cursor:default;-webkit-tap-highlight-color:transparent}
-  .icon:hover{background:rgba(0,0,90,.28)}
-  .icon .g{width:50px;height:50px;display:flex;align-items:center;justify-content:center;font-size:33px;filter:drop-shadow(1px 1px 2px rgba(0,0,0,.45))}
-  .icon .g.sv svg{width:50px;height:50px;filter:drop-shadow(1px 1px 2px rgba(0,0,0,.45))}
-  .icon .l{color:#fff;font-size:12px;font-weight:bold;text-align:center;line-height:14px;text-shadow:1px 1px 2px rgba(0,0,0,.9)}
-  /* window */
-  .win{position:fixed;z-index:10;background:#ece9d8;border:1px solid #0831d9;border-radius:8px 8px 0 0;box-shadow:3px 3px 18px rgba(0,0,0,.5);display:flex;flex-direction:column;min-width:280px}
-  .tbar{background:linear-gradient(180deg,#0058ee 0,#3d90f6 8%,#0054e6 40%,#0054e6 88%,#4ba0ff 100%);color:#fff;font-weight:bold;padding:4px 5px 4px 8px;display:flex;align-items:center;gap:7px;border-radius:7px 7px 0 0;font-size:13px;text-shadow:1px 1px 1px rgba(0,0,0,.35)}
-  .tbar .ti{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .tbar .cx{width:21px;height:21px;border-radius:4px;background:linear-gradient(180deg,#f16d5c,#c23a26);border:1px solid #fff;color:#fff;font-weight:bold;display:flex;align-items:center;justify-content:center;font-size:13px;cursor:pointer;box-shadow:inset 0 1px 0 rgba(255,255,255,.5)}
-  .wc{background:#ece9d8;padding:16px 16px 18px;border:2px solid #0831d9;border-top:none;border-radius:0 0 8px 8px}
-  /* my work */
-  .hi{font-size:22px;font-weight:bold;color:#0b3d91;margin-bottom:3px}
-  .sub{color:#444;margin-bottom:18px;font-size:12.5px}
-  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;width:440px;max-width:78vw}
-  .pc{display:flex;gap:11px;align-items:center;padding:9px;background:#fff;border:1px solid #b9b9a8;border-radius:6px;cursor:pointer;transition:.12s}
-  .pc:hover{border-color:#3a6ea5;background:#f2f7ff;transform:translateY(-1px);box-shadow:0 4px 10px rgba(0,0,0,.12)}
-  .pc .th{width:64px;height:64px;flex-shrink:0;border-radius:5px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;background:#111}
-  .pc .th img{width:100%;height:100%;object-fit:cover}
-  .pc .th .pl{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:22px;background:rgba(0,0,0,.25)}
-  .pc .tx .t{font-weight:bold;font-size:14px;color:#111}
-  .pc .tx .d{color:#666;font-size:11.5px;line-height:14px;margin-top:2px}
-  .pc .tx .u{color:#1a4fd0;font-size:11px;margin-top:3px}
-  /* boarding pass mini */
-  .pass{width:64px;height:64px;background:#0b3d91;display:flex;flex-direction:column;justify-content:center;align-items:center;color:#fff}
-  .pass .rt{font-weight:bold;font-size:12px;letter-spacing:.5px}
-  .pass .pr{font-size:9px;color:#8fd0ff;margin-top:2px}
-  .pass .bc{margin-top:4px;width:44px;height:9px;background:repeating-linear-gradient(90deg,#fff 0 1.5px,#0b3d91 1.5px 3px)}
-  .hearts{width:64px;height:64px;background:linear-gradient(135deg,#111,#3a1620);color:#ff5a7a;display:flex;align-items:center;justify-content:center;font-size:20px;letter-spacing:1px}
-  /* about */
-  .about{width:400px;max-width:80vw;color:#222;font-size:13px;line-height:1.6}
-  .about b{color:#0b3d91}
-  .about .row{margin-top:12px;display:flex;flex-wrap:wrap;gap:8px}
-  .lnk{color:#1a4fd0;text-decoration:none;border:1px solid #c3c3b0;background:#fff;border-radius:5px;padding:4px 10px;font-size:12px;cursor:pointer}
-  .lnk:hover{background:#f2f7ff;border-color:#3a6ea5}
+    background:linear-gradient(180deg,#4b8ce0 0%,#78b0e8 42%,#8ec96a 42%,#5a9e3f 100%);cursor:default;-webkit-user-select:none;user-select:none;touch-action:none}
+  body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:99999;background:repeating-linear-gradient(0deg,rgba(0,0,0,.03) 0 1px,transparent 1px 3px);mix-blend-mode:multiply}
+  /* desktop */
+  #desktop{position:fixed;inset:0 0 42px 0;padding:22px;z-index:1}
+  .icons{display:grid;grid-template-columns:repeat(2,96px);gap:10px 26px;width:220px}
+  .ic{display:flex;flex-direction:column;align-items:center;gap:6px;padding:8px 4px;cursor:default;border-radius:3px;-webkit-tap-highlight-color:transparent}
+  .ic:hover{background:rgba(0,0,80,.35)}
+  .ic .g{width:52px;height:52px;display:flex;align-items:center;justify-content:center;font-size:34px;filter:drop-shadow(1px 1px 2px rgba(0,0,0,.4))}
+  .ic .l{color:#fff;font-size:12px;text-align:center;text-shadow:1px 1px 2px rgba(0,0,0,.9);font-weight:bold;line-height:14px}
+  /* classic gray window */
+  .win{position:fixed;z-index:10;background:#c0c0c0;border-top:2px solid #dfdfdf;border-left:2px solid #dfdfdf;border-right:2px solid #404040;border-bottom:2px solid #404040;box-shadow:2px 2px 12px rgba(0,0,0,.45);display:flex;flex-direction:column}
+  .tb{background:linear-gradient(90deg,#000080,#1084d0);color:#fff;font-weight:bold;padding:4px 5px 4px 6px;display:flex;align-items:center;gap:6px;font-size:12.5px}
+  .tb .ti{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .tb .x{background:#c0c0c0;color:#000;border-top:1px solid #fff;border-left:1px solid #fff;border-right:1px solid #404040;border-bottom:1px solid #404040;width:22px;height:20px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:bold;cursor:pointer}
+  .tb .x:active{border-top:1px solid #404040;border-left:1px solid #404040;border-right:1px solid #fff;border-bottom:1px solid #fff}
+  .menu{display:flex;gap:14px;padding:3px 8px;border-bottom:1px solid #808080;color:#000}
+  .menu span{padding:0 2px}
+  .menu span:hover{background:#000080;color:#fff}
+  .addr{display:flex;align-items:center;gap:6px;padding:4px 8px;border-bottom:1px solid #808080}
+  .addr .box{flex:1;background:#fff;border:1px solid #808080;border-right-color:#dfdfdf;border-bottom-color:#dfdfdf;padding:2px 6px;font-size:12px}
+  .wbody{background:#fff;margin:3px;border:1px solid #808080;border-right-color:#dfdfdf;border-bottom-color:#dfdfdf;padding:16px 14px}
+  .hi{font-size:20px;font-weight:bold;color:#000080;margin-bottom:2px}
+  .sub{color:#444;margin-bottom:16px}
+  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .card{display:flex;flex-direction:column;align-items:center;gap:7px;padding:10px 6px;border-radius:4px;cursor:pointer}
+  .card:hover{background:#eef2ff;outline:1px dotted #98a}
+  .card .th{width:88px;height:88px;border:1px solid #999;background:#eee;display:flex;align-items:center;justify-content:center;font-size:40px;overflow:hidden;position:relative}
+  .card .th img{width:100%;height:100%;object-fit:cover}
+  .card .th.blue{background:#0b3d91;color:#fff}
+  .card .th.black{background:#111;color:#fff}
+  .card .play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.28);color:#fff;font-size:26px}
+  .card .t{font-weight:bold;font-size:12.5px;color:#000}
+  .card .d{color:#666;font-size:11px;text-align:center;line-height:13px}
+  .status{border-top:1px solid #808080;margin:0 3px 3px;padding:3px 8px;color:#333;background:#c0c0c0}
+  /* about window body */
+  .about{background:#fff;margin:3px;border:1px solid #808080;border-right-color:#dfdfdf;border-bottom-color:#dfdfdf;padding:16px 15px;width:400px;max-width:82vw;color:#222;font-size:12.5px;line-height:1.65}
+  .about b{color:#000080}
+  .about .row{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px}
+  .lnk{color:#00c;text-decoration:none;border:1px solid #808080;border-top-color:#dfdfdf;border-left-color:#dfdfdf;background:#c0c0c0;padding:3px 12px;font-size:12px;cursor:pointer;color:#000}
+  .lnk:active{border-top:1px solid #404040;border-left:1px solid #404040;border-right:1px solid #fff;border-bottom:1px solid #fff}
   /* taskbar */
-  #taskbar{position:fixed;left:0;right:0;bottom:0;height:40px;z-index:9998;background:linear-gradient(180deg,#3168d5 0,#4993e6 9%,#2b74d6 18%,#2b74d6 92%,#1e5bc6 100%);display:flex;align-items:center;padding:0 4px 0 0;box-shadow:0 -1px 0 #1042a0 inset}
-  #start{height:100%;padding:0 22px 3px 10px;background:linear-gradient(180deg,#78d95a 0,#54b13a 45%,#3f9a2e 55%,#2f7f22 100%);color:#fff;font-style:italic;font-weight:bold;font-size:16px;display:flex;align-items:center;gap:8px;border-radius:0 12px 12px 0;text-shadow:1px 1px 1px rgba(0,0,0,.4);cursor:pointer;box-shadow:inset 0 2px 1px rgba(255,255,255,.4)}
-  #start .flag{display:grid;grid-template-columns:7px 7px;grid-template-rows:7px 7px;gap:1.5px;transform:rotate(0)}
+  #taskbar{position:fixed;left:0;right:0;bottom:0;height:42px;z-index:9998;background:linear-gradient(180deg,#3a93f0,#215dc6);display:flex;align-items:center;padding:3px}
+  #start{background:linear-gradient(180deg,#5eb85e,#3c9a3c);color:#fff;font-weight:bold;font-style:italic;font-size:15px;padding:4px 18px 5px 10px;border-radius:0 9px 9px 0;display:flex;align-items:center;gap:7px;box-shadow:inset 0 1px 0 rgba(255,255,255,.4);cursor:pointer;text-shadow:1px 1px 1px rgba(0,0,0,.35)}
+  #start .flag{display:grid;grid-template-columns:6px 6px;grid-template-rows:6px 6px;gap:1px}
   #start .flag i{display:block;border-radius:1px}
-  .tasks{flex:1;display:flex;gap:4px;padding:0 8px;height:100%;align-items:center;overflow:hidden}
-  .tk{background:linear-gradient(180deg,#3f8ae8,#2b6fd0);color:#fff;border:1px solid rgba(255,255,255,.35);border-radius:3px;padding:5px 12px;font-weight:bold;max-width:170px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:flex;gap:6px;align-items:center;cursor:pointer}
-  .tray{background:linear-gradient(180deg,#1699e6,#0d87d8);color:#fff;height:100%;display:flex;align-items:center;gap:8px;padding:0 12px;border-left:1px solid rgba(255,255,255,.35);font-size:11.5px}
+  .tasks{flex:1;display:flex;gap:4px;padding:0 6px;overflow:hidden}
+  .tk{background:#2f7fe0;color:#fff;padding:4px 12px;border:1px solid rgba(255,255,255,.4);max-width:180px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:flex;align-items:center;gap:6px;font-weight:bold;cursor:pointer}
+  .tk.active{background:#1e5cc0;box-shadow:inset 1px 1px 3px rgba(0,0,0,.4)}
+  .tray{background:rgba(0,0,60,.25);color:#fff;padding:0 12px;height:34px;display:flex;align-items:center;gap:8px;border-left:1px solid rgba(255,255,255,.3);font-size:11.5px}
   /* start menu */
-  #startmenu{position:fixed;left:0;bottom:40px;width:260px;z-index:10000;display:none;background:#fff;border:1px solid #0831d9;border-bottom:none;border-radius:8px 8px 0 0;box-shadow:3px -3px 16px rgba(0,0,0,.4);overflow:hidden}
+  #startmenu{position:fixed;left:2px;bottom:42px;width:230px;z-index:10000;display:none;background:#c0c0c0;border-top:2px solid #dfdfdf;border-left:2px solid #dfdfdf;border-right:2px solid #404040;box-shadow:2px 2px 12px rgba(0,0,0,.5)}
   #startmenu.open{display:block}
-  .smhead{background:linear-gradient(180deg,#1868e8,#0a4bd6);color:#fff;font-weight:bold;font-size:15px;padding:12px 12px;display:flex;align-items:center;gap:9px;text-shadow:1px 1px 1px rgba(0,0,0,.4)}
-  .smhead .av{width:34px;height:34px;border-radius:6px;background:#fff;color:#0a4bd6;display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:bold}
-  .smitems{padding:6px 0}
-  .smi{padding:8px 14px;display:flex;align-items:center;gap:10px;font-size:12.5px;color:#111;cursor:pointer}
-  .smi:hover{background:#2b74d6;color:#fff}
-  .smsep{height:1px;background:#d3d3c0;margin:4px 10px}
+  .smhead{background:linear-gradient(0deg,#000080,#1084d0);color:#fff;font-weight:bold;font-size:15px;padding:10px 10px;display:flex;align-items:center;gap:8px;writing-mode:initial}
+  .smhead .av{width:30px;height:30px;background:#fff;color:#000080;display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:bold;border:1px solid #808080}
+  .smitems{padding:4px 3px}
+  .smi{padding:6px 12px;display:flex;align-items:center;gap:10px;font-size:12.5px;color:#000;cursor:pointer}
+  .smi:hover{background:#000080;color:#fff}
+  .smsep{height:1px;background:#808080;border-bottom:1px solid #fff;margin:4px 6px}
   .smsub{display:none}
   .smsub.open{display:block}
-  .smsub .smi{padding-left:34px;font-size:12px}
-  @media (max-width:640px){
-    .grid{grid-template-columns:1fr;width:min(88vw,360px)}
+  .smsub .smi{padding-left:30px;font-size:12px}
+  @media (max-width:680px){
+    .icons{grid-template-columns:repeat(2,80px);width:180px;gap:8px 14px}
+    .grid{grid-template-columns:repeat(2,1fr)}
     .win{max-width:96vw}
-    #start{font-size:15px}
+    .about{width:auto}
   }
 </style>
 </head>
 <body>
 
-<div id="desktop"></div>
+<div id="desktop"><div class="icons" id="icons"></div></div>
 
 <div id="startmenu">
   <div class="smhead"><span class="av">z</span><span>zidu</span></div>
@@ -118,10 +121,10 @@
 <script>
 // ---- data ----
 var PROJECTS = [
-  { id:'airr',   label:'Airr',           icon:'✈️', url:'https://joinairr.com',        title:'Airr',           desc:'flight-deal app. find cheap flights fast.', u:'joinairr.com',      th:'pass' },
-  { id:'vids',   label:'vids.zip',       icon:'🎬', url:'https://vids.zip',            title:'vids.zip',       desc:'videography reel. ziduflicks.',             u:'vids.zip',          th:'video' },
-  { id:'dispos', label:'dispos.zip',     icon:'📷', url:'https://dispos.zip',          title:'dispos.zip',     desc:'disposable-camera photos. zidudispos.',     u:'dispos.zip',        th:'photo' },
-  { id:'triple', label:'Triple Hearts',  icon:'👕', url:'https://tripleheartts.shop',  title:'Triple Hearts',  desc:'clothing brand.',                           u:'tripleheartts.shop',th:'hearts' }
+  { title:'Airr',          url:'https://joinairr.com',       desc:'flight-deal app<br>joinairr.com',      th:'<div class="th blue">✈️</div>' },
+  { title:'vids.zip',      url:'https://vids.zip',           desc:'videography<br>ziduflicks',            th:'<div class="th"><img src="https://www.dispos.zip/imgs/047_1.jpg" alt=""><div class="play">▶</div></div>' },
+  { title:'dispos.zip',    url:'https://dispos.zip',         desc:'disposable photos<br>zidudispos',      th:'<div class="th"><img src="https://www.dispos.zip/imgs/038_1.jpg" alt=""></div>' },
+  { title:'Triple Hearts', url:'https://tripleheartts.shop', desc:'clothing<br>store link →',             th:'<div class="th black">👕</div>' }
 ];
 var DESK_ICONS = [
   {icon:'✈️', label:'Airr',          act:"go('https://joinairr.com')"},
@@ -129,37 +132,39 @@ var DESK_ICONS = [
   {icon:'📷', label:'dispos.zip',    act:"go('https://dispos.zip')"},
   {icon:'👕', label:'Triple Hearts', act:"go('https://tripleheartts.shop')"},
   {icon:'📖', label:'scrapbook.zip', act:"go('https://scrapbook.zip')"},
-  {icon:'🗂️', label:'My Work',       act:"openWin('work')"},
   {icon:'📄', label:'About Me',      act:"openWin('about')"}
 ];
-function thumb(p){
-  if(p.th==='pass') return '<div class="pass"><div class="rt">ATL→NYC</div><div class="pr">$38 nonstop</div><div class="bc"></div></div>';
-  if(p.th==='video') return '<img src="https://www.dispos.zip/imgs/047_1.jpg" alt=""><div class="pl">▶</div>';
-  if(p.th==='photo') return '<img src="https://www.dispos.zip/imgs/038_1.jpg" alt="">';
-  if(p.th==='hearts') return '<div class="hearts">♡♡♡</div>';
-  return '';
-}
 // ---- desktop icons ----
 (function(){
-  var d=document.getElementById('desktop'), html='';
-  DESK_ICONS.forEach(function(ic,i){
-    var top=18+i*88, left=18;
-    html+='<div class="icon" style="left:'+left+'px;top:'+top+'px" ondblclick="'+ic.act+'" ontouchend="event.preventDefault();'+ic.act+'">'+
+  var html='';
+  DESK_ICONS.forEach(function(ic){
+    html+='<div class="ic" ondblclick="'+ic.act+'" ontouchend="event.preventDefault();'+ic.act+'">'+
       '<div class="g">'+ic.icon+'</div><div class="l">'+ic.label+'</div></div>';
   });
-  d.innerHTML=html;
+  document.getElementById('icons').innerHTML=html;
 })();
 // ---- windows ----
-var Z=20, openW={};
+var Z=20, openW={}, activeW=null;
 function go(url){ closeStart(); window.open(url,'_blank','noopener'); }
-function centerXY(w,h){ var vw=window.innerWidth, vh=window.innerHeight; var x=Math.round((vw-w)/2); var minX=vw>680?128:8; x=Math.max(minX,Math.min(x,vw-w-8)); var y=Math.max(10,Math.round((vh-40-h)/2)); return {x:x,y:y}; }
+function centerXY(w,h){
+  var vw=window.innerWidth, vh=window.innerHeight;
+  var minX = vw>760 ? 258 : 8;
+  var x = Math.max(minX, Math.round((vw-w)/2));
+  x = Math.min(x, Math.max(8, vw-w-8));
+  var y = Math.max(12, Math.round((vh-40-h)/2)-10);
+  return {x:x,y:y};
+}
 function workHTML(){
   var cards='';
   PROJECTS.forEach(function(p){
-    cards+='<div class="pc" onclick="go(\''+p.url+'\')"><div class="th">'+thumb(p)+'</div>'+
-      '<div class="tx"><div class="t">'+p.title+'</div><div class="d">'+p.desc+'</div><div class="u">'+p.u+' ↗</div></div></div>';
+    cards+='<div class="card" onclick="go(\''+p.url+'\')">'+p.th+'<div class="t">'+p.title+'</div><div class="d">'+p.desc+'</div></div>';
   });
-  return '<div class="hi">hey, i\'m zidu 👋</div><div class="sub">i build apps, shoot video &amp; photo, and run a clothing brand. it all lives here. click in.</div><div class="grid">'+cards+'</div>';
+  return '<div class="menu"><span>File</span><span>Edit</span><span>View</span><span>Help</span></div>'+
+    '<div class="addr"><span>Address</span><div class="box">C:\\zidu\\portfolio</div></div>'+
+    '<div class="wbody"><div class="hi">hey, i\'m zidu 👋</div>'+
+    '<div class="sub">developer · videographer · photographer · founder. everything i make lives here.</div>'+
+    '<div class="grid">'+cards+'</div></div>'+
+    '<div class="status">4 object(s) · click to open</div>';
 }
 function aboutHTML(){
   return '<div class="about">i\'m <b>zidu</b> (zidane), based in atlanta. i make a bunch of things:<br><br>'+
@@ -175,42 +180,40 @@ function aboutHTML(){
     '</div></div>';
 }
 var WINS={
-  work:{ title:'🗂️ zidu — My Work', body:workHTML, w:480 },
-  about:{ title:'📄 About Me', body:aboutHTML, w:432 }
+  work:{ title:'🗂️ &nbsp;zidu — My Work', body:workHTML, w:640, tk:'🗂️ zidu — My Work' },
+  about:{ title:'📄 &nbsp;About Me', body:aboutHTML, w:434, tk:'📄 About Me' }
 };
 function openWin(id){
   closeStart();
   var wid='win-'+id;
   if(openW[wid]){ front(wid); return; }
-  var cfg=WINS[id]; var w=Math.min(cfg.w, window.innerWidth-16);
+  var cfg=WINS[id]; var w=Math.min(cfg.w, window.innerWidth-14);
   var el=document.createElement('div'); el.className='win'; el.id=wid; el.style.width=w+'px'; el.style.zIndex=(++Z);
-  el.innerHTML='<div class="tbar" data-drag><span class="ti">'+cfg.title+'</span><div class="cx" onclick="closeWin(\''+wid+'\')" ontouchend="event.preventDefault();closeWin(\''+wid+'\')">✕</div></div><div class="wc">'+cfg.body()+'</div>';
+  el.innerHTML='<div class="tb" data-drag><span class="ti">'+cfg.title+'</span><div class="x" onclick="closeWin(\''+wid+'\')" ontouchend="event.preventDefault();closeWin(\''+wid+'\')">✕</div></div>'+cfg.body();
   el.style.left='-9999px'; el.style.top='-9999px';
   document.body.appendChild(el);
-  requestAnimationFrame(function(){ var pos=centerXY(el.offsetWidth||w, el.offsetHeight||300); el.style.left=pos.x+'px'; el.style.top=pos.y+'px'; });
+  requestAnimationFrame(function(){ var pos=centerXY(el.offsetWidth||w, el.offsetHeight||320); el.style.left=pos.x+'px'; el.style.top=pos.y+'px'; });
   el.addEventListener('mousedown',function(){front(wid);});
-  openW[wid]={title:cfg.title}; front(wid); renderTasks();
-  makeDrag(el);
+  openW[wid]={tk:cfg.tk}; front(wid); makeDrag(el);
 }
 function closeWin(wid){ var el=document.getElementById(wid); if(el) el.remove(); delete openW[wid]; renderTasks(); }
 function front(wid){ var el=document.getElementById(wid); if(el) el.style.zIndex=(++Z); activeW=wid; renderTasks(); }
-var activeW=null;
 function renderTasks(){
   var t=document.getElementById('tasks'), html='';
-  for(var id in openW){ var short=openW[id].title; html+='<div class="tk'+(id===activeW?' active':'')+'" onclick="front(\''+id+'\')">'+short+'</div>'; }
+  for(var id in openW){ html+='<div class="tk'+(id===activeW?' active':'')+'" onclick="front(\''+id+'\')">'+openW[id].tk+'</div>'; }
   t.innerHTML=html;
 }
 // drag
 function makeDrag(el){
   var bar=el.querySelector('[data-drag]'), st=null;
   function down(cx,cy){ front(el.id); var r=el.getBoundingClientRect(); st={ox:cx-r.left,oy:cy-r.top}; }
-  bar.addEventListener('mousedown',function(e){ if(e.target.closest('.cx'))return; down(e.clientX,e.clientY); e.preventDefault(); });
-  bar.addEventListener('touchstart',function(e){ if(e.target.closest('.cx'))return; var t=e.touches[0]; if(t)down(t.clientX,t.clientY); },{passive:true});
+  bar.addEventListener('mousedown',function(e){ if(e.target.closest('.x'))return; down(e.clientX,e.clientY); e.preventDefault(); });
+  bar.addEventListener('touchstart',function(e){ if(e.target.closest('.x'))return; var t=e.touches[0]; if(t)down(t.clientX,t.clientY); },{passive:true});
   document.addEventListener('mousemove',function(e){ if(!st)return; move(e.clientX,e.clientY); });
   document.addEventListener('touchmove',function(e){ if(!st)return; var t=e.touches[0]; if(t){move(t.clientX,t.clientY); e.preventDefault();} },{passive:false});
   document.addEventListener('mouseup',function(){st=null;});
   document.addEventListener('touchend',function(){st=null;});
-  function move(cx,cy){ var x=cx-st.ox, y=cy-st.oy; y=Math.max(-4,Math.min(y,window.innerHeight-70)); x=Math.max(-el.offsetWidth+70,Math.min(x,window.innerWidth-60)); el.style.left=x+'px'; el.style.top=y+'px'; }
+  function move(cx,cy){ var x=cx-st.ox, y=cy-st.oy; y=Math.max(-2,Math.min(y,window.innerHeight-70)); x=Math.max(-el.offsetWidth+70,Math.min(x,window.innerWidth-60)); el.style.left=x+'px'; el.style.top=y+'px'; }
 }
 // start menu
 var startOpen=false;
