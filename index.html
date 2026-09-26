@@ -19,7 +19,7 @@
   body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:99999;background:repeating-linear-gradient(0deg,rgba(0,0,0,.03) 0 1px,transparent 1px 3px);mix-blend-mode:multiply}
   /* desktop — icons centered */
   #desktop{position:fixed;inset:0 0 42px 0;display:flex;align-items:center;justify-content:center;z-index:1}
-  .icons{display:grid;grid-template-columns:repeat(3,102px);gap:24px 26px;justify-items:center}
+  .icons{display:flex;flex-wrap:wrap;justify-content:center;gap:24px 26px;max-width:344px}
   .ic{display:flex;flex-direction:column;align-items:center;gap:7px;padding:9px 4px;cursor:default;border-radius:3px;-webkit-tap-highlight-color:transparent;width:96px}
   .ic:hover{background:rgba(0,0,80,.32)}
   .ic .g{width:56px;height:56px;display:flex;align-items:center;justify-content:center;font-size:38px;filter:drop-shadow(1px 1px 2px rgba(0,0,0,.4))}
@@ -45,7 +45,7 @@
   .smsub.open{display:block}
   .smsub .smi{padding-left:30px;font-size:12px}
   @media (max-width:640px){
-    .icons{grid-template-columns:repeat(2,102px);gap:20px 20px}
+    .icons{max-width:216px;gap:20px 20px}
     #start{font-size:15px}
   }
 </style>
